@@ -60,7 +60,7 @@ const getTotal = () => {
           document.querySelector('#total-block').insertAdjacentHTML('afterbegin', totalTemplate);
 }
 const getData = () => {
-  fetch('/js/sample.json')
+  fetch('./js/sample.json')
   .then(res => res.json())
   .then((cards) => {
     let cardTemplate = '';
