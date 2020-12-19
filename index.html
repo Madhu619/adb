@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Adobe Javascript</title>
+	<link rel="stylesheet/less" type="text/css" href="./less/index.less">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body>
+	<navbar> <nav> <div class="text-left"><h3> All Items <h3></div> <div class="text-center item-action"><span id="item-action"> Cart is Empty</span></div></nav> </navbar>
+
+	<div class="parent">
+		<div class="items-wrapper">
+			<div class="items" id="items"></div>
+		</div>
+		<div class="cart" id="cart">
+			<div class="cart-header">
+				<div class="header-item">Items <span class="items-count"></span></div>
+				<div>Qty</div>
+				<div>Price</div>
+			</div>
+			<div class="cart-items">
+					<div class="items-container-wrapper" id ="items-container-wrapper">
+					</div>
+					<div class="total-container" id="total-container">
+							<h4> Total </h4>
+							<div class='total-block' id='total-block'></div>
+					</div>
+			</div>
+		</div>
+	</div>
+
+
+<script src="//cdn.jsdelivr.net/npm/less@3.13" ></script>
+<script type="text/javascript" src="./js/index.js"></script>
+</body>
+</html>
