@@ -1,14 +1,14 @@
 var cartItems = [];
 var totalItems = {items: 0, price : 0, discount : 0, orderTotal : 0};
 const createCard = (card, index) => {
-  let currentCard = JSON.stringify({item: index, price:card.price.actual,discount : card.price.display - card.price.actual, initialDiscount: card.price.display - card.price.actual, image: card.image, value:1, startPrice:card.price.actual});
+  let currentCard = JSON.stringify({item: index, name:card.name, price:card.price.actual,discount : card.price.display - card.price.actual, initialDiscount: card.price.display - card.price.actual, image: card.image, value:1, startPrice:card.price.actual});
   
   return `<div class="card" id="Item`+index+`"> 
     <img src='`+card.image+`' alt='Item `+index+`' />
     <span class='item-offer'>`+card.discount+`% off</span>
     <div class='card-footer'>
       <div class='col-1'>
-        <div> Item `+index+` </div>
+        <div> `+card.name+` </div>
         <div class='actual-price'> `+card.price.display+` </div>
       </div>
       <div class='display-price'> <strong> $`+card.price.actual+` </strong> </div>
@@ -22,7 +22,7 @@ const getCartItem = (itemsList) => {
   return `<div class="items-container" id ="items-container">
             <div class="item-action">
 							<img src="`+itemsList.image+`" alt="">
-							<div>Item `+itemsList.item+`</div>
+							<div>`+itemsList.name+`</div>
 							<div class='remove-button' data-item="`+itemsList.item+`"><i class="fa fa-times"></i></div>
 						</div>
 						<div class="quantity">
@@ -64,7 +64,7 @@ const getTotal = () => {
           document.querySelector('#total-block').insertAdjacentHTML('afterbegin', totalTemplate);
 }
 const getData = () => {
-  fetch('./js/sample.json')
+  fetch('./js/sample1.json')
   .then(res => res.json())
   .then((cards) => {
     let cardTemplate = '';
