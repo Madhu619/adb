@@ -164,7 +164,7 @@ const decrement = () => {
         getCartItems();
         getTotal();
       } else {
-        if (window.confirm('Really go to another page?'))
+        if (window.confirm('You want to delete this Item'+indexVal+'?'))
           {
             cartItems = cartItems.filter(ele => ele.item != indexVal);
             getCartItems();
