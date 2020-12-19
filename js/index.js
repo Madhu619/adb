@@ -83,8 +83,8 @@ const getData = () => {
         {
           cartItems.push(currentObj);
           totalItems.items++;
-          totalItems.price= cartItems.length === 1 ? cartItems[0].price : cartItems.reduce((a, b) => (a.price + b.price));
-          totalItems.discount= cartItems.length === 1 ? cartItems[0].discount : cartItems.reduce((a, b) => (a.discount + b.discount));
+          totalItems.price= cartItems.length === 1 ? cartItems[0].price : cartItems.reduce(function (r, a) { return r + a.price; }, 0)
+          totalItems.discount= cartItems.length === 1 ? cartItems[0].discount : cartItems.reduce(function (r, a) { return r + a.discount; }, 0)
           e.currentTarget.parentElement.parentElement.hidden = true;
           getCartItems();
           getTotal();
@@ -112,8 +112,8 @@ const removeItem = () => {
     removeButtons[i].addEventListener('click', (e) => {
       cartItems = cartItems.filter(ele => ele.item != e.currentTarget.dataset.item);
       if(cartItems.length > 0) {
-        totalItems.price= cartItems.length === 1 ? cartItems[0].price : cartItems.reduce((a, b) => (a.price + b.price));
-        totalItems.discount= cartItems.length === 1 ? cartItems[0].discount : cartItems.reduce((a, b) => (a.discount + b.discount));
+        totalItems.price= cartItems.length === 1 ? cartItems[0].price : cartItems.reduce(function (r, a) { return r + a.price; }, 0)
+        totalItems.discount= cartItems.length === 1 ? cartItems[0].discount : cartItems.reduce(function (r, a) { return r + a.discount; }, 0)
         document.querySelector('#item-action').innerHTML = 'Item'+e.currentTarget.dataset.item+ ' is removed from cart';
       } else {
         totalItems = {items: 0, price : 0, discount : 0, orderTotal : 0}
@@ -138,9 +138,9 @@ const increment = () => {
            ele.price = ele.startPrice * ele.value;
           ele.discount = ele.initialDiscount * ele.value;
 
-           totalItems.price= cartItems.length === 1 ? cartItems[0].price : cartItems.reduce((a, b) => (a.price + b.price));
+           totalItems.price= cartItems.length === 1 ? cartItems[0].price : cartItems.reduce(function (r, a) { return r + a.price; }, 0)
 
-           totalItems.discount= cartItems.length === 1 ? cartItems[0].discount : cartItems.reduce((a, b) => (a.discount + b.discount));          
+           totalItems.discount= cartItems.length === 1 ? cartItems[0].discount : cartItems.reduce(function (r, a) { return r + a.discount; }, 0)          
          }
       })
       getCartItems();
@@ -161,8 +161,8 @@ const decrement = () => {
             totalItems.items--;
             ele.price = ele.startPrice * ele.value;
             ele.discount = ele.initialDiscount * ele.value;
-            totalItems.price= cartItems.length === 1 ? cartItems[0].price : cartItems.reduce((a, b) => (a.price + b.price));
-            totalItems.discount= cartItems.length === 1 ? cartItems[0].discount : cartItems.reduce((a, b) => (a.discount + b.discount));
+            totalItems.price= cartItems.length === 1 ? cartItems[0].price : cartItems.reduce(function (r, a) { return r + a.price; }, 0)
+            totalItems.discount= cartItems.length === 1 ? cartItems[0].discount : cartItems.reduce(function (r, a) { return r + a.discount; }, 0)
 
           }
         })
