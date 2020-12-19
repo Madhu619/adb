@@ -73,6 +73,7 @@ const getData = () => {
     });
     document.querySelector('#items').insertAdjacentHTML('afterbegin', cardTemplate);
     initialiseActions();
+    getTotal();
   })
   .catch(err => { throw err });
 }
@@ -182,6 +183,7 @@ const decrement = () => {
 }
 
 getData();
+
  
 
 
